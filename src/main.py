@@ -1,10 +1,10 @@
 import asyncio
-import operator
+
 
 from src.exmo import Exmo
+from src.helpers import get_currency, group_by_name
 from src.kraken import Kraken
 from src.poloniex import Poloniex
-from src.helpers import group_by_name
 
 
 def main():
@@ -31,25 +31,11 @@ def main():
             group_by_pair_ask[f'{k}/{k1}'] = v1['ask']
             group_by_pair_bid[f'{k}/{k1}'] = v1['bid']
 
-    # Проходимся по словарю и выводим значения Ask
-    for pair in pairs:
-        for k, v in sorted(group_by_pair_ask.items(), key=operator.itemgetter(1), reverse=True):
-            if pair in k:
-                source_pair = k.split('/')
-                source = source_pair[0]
-                pair = source_pair[1]
-                print(f'Source: {source} Pair: {pair} Ask price: {v}')
+    get_currency(group_by_pair_ask, 'Ask', pairs)
 
     print('='*50)
 
-    # Проходимся по словарю и выводим значения Bid
-    for pair in pairs:
-        for k, v in sorted(group_by_pair_bid.items(), key=operator.itemgetter(1), reverse=True):
-            if pair in k:
-                source_pair = k.split('/')
-                source = source_pair[0]
-                pair = source_pair[1]
-                print(f'Source: {source} Pair: {pair} Bid price: {v}')
+    get_currency(group_by_pair_bid, 'Bid', pairs)
 
 
 if __name__ == '__main__':

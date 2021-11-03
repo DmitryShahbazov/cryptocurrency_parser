@@ -1,5 +1,6 @@
-import aiohttp
 import asyncio
+
+import aiohttp
 
 
 class Kraken:

@@ -1,3 +1,6 @@
+import operator
+
+
 def group_by_name(cryptocurrency: dict) -> dict:
     """
     Функция для приведения к одинаковым названиям пар
@@ -19,3 +22,13 @@ def group_by_name(cryptocurrency: dict) -> dict:
             result['BTC_ZEC'] = v
 
     return result
+
+
+def get_currency(currency_group: dict, key: str, pairs: list):
+    for pair in pairs:
+        for k, v in sorted(currency_group.items(), key=operator.itemgetter(1), reverse=True):
+            if pair in k:
+                source_pair = k.split('/')
+                source = source_pair[0]
+                pair = source_pair[1]
+                print(f'Source: {source} Pair: {pair} {key} price: {v}')
