@@ -32,7 +32,7 @@ def group_by_name(cryptocurrency: dict) -> dict:
 
 def get_currency(currency_group: dict, key: str, pairs: list):
     for pair in pairs:
-        for k, v in sorted(currency_group.items(), key=operator.itemgetter(1), reverse=True):
+        for k, v in sorted(currency_group.items(), key=operator.itemgetter(1)):
             if pair in k:
                 source_pair = k.split('/')
                 source = source_pair[0]
