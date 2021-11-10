@@ -1,0 +1,26 @@
+[
+  {
+  "name": "Exmo",
+  "pairs": ["ETH_BTC", "ETH_USDT", "XRP_BTC", "BCH_BTC", "ZEC_BTC"],
+  "url": "https://api.exmo.com/v1.1/ticker",
+  "many_urls": false,
+  "ask": "buy_price",
+  "bid": "sell_price"
+},
+  {
+  "name": "Poloniex",
+  "pairs": ["BTC_ETH", "USDT_ETH", "BTC_XRP", "BTC_BCH", "BTC_ZEC"],
+  "url": "https://poloniex.com/public?command=returnTicker",
+  "many_urls": false,
+  "ask": "lowestAsk",
+  "bid": "highestBid"
+},
+  {
+  "name": "Kraken",
+  "pairs": ["ETHBTC", "ETHUSDT", "XRPBTC", "BCHBTC", "ZECBTC"],
+  "url": "https://api.kraken.com/0/public/Ticker?pair=PAIR_MACROS",
+  "many_urls": true,
+  "ask": "a",
+  "bid": "b"
+}
+]
