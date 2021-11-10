@@ -1,6 +1,5 @@
 import json
 import operator
-import os
 
 
 def group_by_name(cryptocurrency: dict) -> dict:
